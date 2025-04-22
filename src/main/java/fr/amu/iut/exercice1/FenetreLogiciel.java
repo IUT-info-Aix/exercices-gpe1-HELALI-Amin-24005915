@@ -78,7 +78,7 @@ public class FenetreLogiciel extends Application {
 
         gridpane.add(submit, 0, 3);
         gridpane.add(cancel, 1, 3);
-        //submit.setPadding(new Insets(0, 1, 0, 0));
+        submit.setPadding(new Insets(0, 1, 0, 0));
         //cancel.setPadding(new Insets(0, 1, 0, 0));
 
 
