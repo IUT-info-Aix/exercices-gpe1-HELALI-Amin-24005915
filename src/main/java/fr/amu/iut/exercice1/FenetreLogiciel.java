@@ -76,22 +76,12 @@ public class FenetreLogiciel extends Application {
         // Footer avec séparateur horizontal
         Separator footerSeparator = new Separator();
         footerSeparator.setOrientation(Orientation.HORIZONTAL);
-
         Label footer = new Label("Ceci est un label de bas de page");
-
         VBox footerBox = new VBox(footerSeparator, footer);
         footerBox.setAlignment(Pos.CENTER);
         footerBox.setPadding(new Insets(5));
 
         root.setBottom(footerBox);
-
-
-
-
-
-
-
-
         root.setCenter(gridpane);
 
         //Texte et boutons a gauche
@@ -109,7 +99,6 @@ public class FenetreLogiciel extends Application {
 
 
     }
-
 
     public static void main(String[] args) {
         launch(args);
