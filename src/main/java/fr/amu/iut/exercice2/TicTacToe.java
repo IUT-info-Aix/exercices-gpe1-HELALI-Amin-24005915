@@ -28,10 +28,15 @@ public class TicTacToe extends Application {
         Label  labelVide = new Label();
         labelVide.setGraphic(Vide);
 
-        //Créationd de la grid
+        //Création de la grid
         GridPane gridpane = new GridPane();
-        gridpane.setHgap(2);
-        gridpane.setVgap(3);
+        GridPane.setRowIndex(labelCroix,0 );
+        GridPane.setColumnIndex(labelRond,0 );
+        GridPane.setRowIndex(labelVide,1 );
+        GridPane.setColumnIndex(labelCroix,2 );
+        GridPane.setColumnIndex(labelRond,3 );
+
+
 
 
 
