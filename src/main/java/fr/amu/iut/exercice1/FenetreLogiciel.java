@@ -18,37 +18,31 @@ public class FenetreLogiciel extends Application {
         primaryStage.setTitle("Premier exemple manipulant les conteneurs");
         BorderPane root = new BorderPane();
         //Menubar
-        Menu menu1 = new Menu("File");
+        //file
+        Menu File = new Menu("File");
         MenuItem File1 = new MenuItem("File1");
         MenuItem File2 = new MenuItem("File2");
         SeparatorMenuItem separator = new SeparatorMenuItem();
-        menu1.getItems().addAll(File1, separator, File2);
-
-        Menu menu2 = new Menu("Edit");
+        File.getItems().addAll(File1, separator, File2);
+        //Edit
+        Menu Edit = new Menu("Edit");
         MenuItem Cut = new MenuItem("Cut");
         MenuItem Paste = new MenuItem("Paste");
         SeparatorMenuItem separator1 = new SeparatorMenuItem();
-        menu2.getItems().addAll(Cut, separator1, Paste);
-
-        Menu menu3 = new Menu("Help");
-        MenuItem share = new MenuItem("share");
-        MenuItem talk = new MenuItem("talk");
-        SeparatorMenuItem separator2 = new SeparatorMenuItem();
-        menu3.getItems().addAll(share, separator2, talk);
-        MenuBar menuBar = new MenuBar(menu1, menu2, menu3); //on met tout nos menue ici pour ensuite definir leur emplacement avec root
-
+        Edit.getItems().addAll(Cut, separator1, Paste);
+        //Help
+        Menu Help = new Menu("Help");
+        MenuBar menuBar = new MenuBar(File, Edit, Help); //on met tout nos menue ici pour ensuite definir leur emplacement avec root
         //Boutons a gauche
         Label boutontext = new Label(" Boutons : ");
         Button bouton1 = new Button("Bouton1");
         Button bouton2 = new Button("Bouton2");
         Button bouton3 = new Button("Bouton3");
 
-
-        VBox boutongauche = new VBox(boutontext, bouton1, bouton2, bouton3);//on ne peut pas faire comme avec les menu on les met directement dans la VBOX ou Hbox
-        boutongauche.setAlignment(Pos.CENTER);
-        HBox bareDeBoutons = new HBox(boutongauche, new Separator(Orientation.VERTICAL));
-
-
+        VBox boutongauche = new VBox(10, boutontext, bouton1, bouton2, bouton3);
+        boutongauche.setAlignment(Pos.CENTER); //placer les bouton au centre
+        boutongauche.setPadding(new Insets(5));//espacer les boutons
+        HBox bareDeBoutons = new HBox(boutongauche, new Separator(Orientation.VERTICAL)); //separateur vertical
 
         //TextField aux centre et champ de saisie
         Label Name = new Label("Name :");
@@ -75,11 +69,24 @@ public class FenetreLogiciel extends Application {
         //création et positionnement des boutons
         Button submit = new Button("Submit");
         Button cancel = new Button("Cancel");
+        HBox formButtons = new HBox(10, submit, cancel);
+        formButtons.setAlignment(Pos.CENTER);
+        gridpane.add(formButtons, 0, 3, 2, 1);
 
-        gridpane.add(submit, 0, 3);
-        gridpane.add(cancel, 1, 3);
-        submit.setPadding(new Insets(0, 1, 0, 0));
-        cancel.setPadding(new Insets(0, 1, 0, 0));
+        // Footer avec séparateur horizontal
+        Separator footerSeparator = new Separator();
+        footerSeparator.setOrientation(Orientation.HORIZONTAL);
+
+        Label footer = new Label("Ceci est un label de bas de page");
+
+        VBox footerBox = new VBox(footerSeparator, footer);
+        footerBox.setAlignment(Pos.CENTER);
+        footerBox.setPadding(new Insets(5));
+
+        root.setBottom(footerBox);
+
+
+
 
 
 
