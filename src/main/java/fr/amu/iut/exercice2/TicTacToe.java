@@ -1,7 +1,9 @@
 package fr.amu.iut.exercice2;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Orientation;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Separator;
 import javafx.scene.image.Image;
@@ -14,30 +16,30 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.util.Random;
 
 public class TicTacToe extends Application {
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
+
         BorderPane root = new BorderPane();
         // Chargement des images
         Image imgCroix = new Image(getClass().getResourceAsStream("/exercice2/Croix.png"));
         ImageView Croix = new ImageView(imgCroix);
-        Croix.setFitWidth(90);
-        Croix.setFitHeight(90);
+        Croix.setFitWidth(100);
+        Croix.setFitHeight(100);
 
 
         Image imgRond = new Image(getClass().getResourceAsStream("/exercice2/Rond.png"));
         ImageView Rond = new ImageView(imgRond);
-        Rond.setFitWidth(90);
-        Rond.setFitHeight(90);
+        Rond.setFitWidth(100);
+        Rond.setFitHeight(100);
 
         Image imgVide = new Image(getClass().getResourceAsStream("/exercice2/Vide.png"));
         ImageView Vide = new ImageView(imgVide);
-        Vide.setFitWidth(90);
-        Vide.setFitHeight(90);
-
-
+        Vide.setFitWidth(100);
+        Vide.setFitHeight(100);
 
 
         // Création de la grille
@@ -70,8 +72,13 @@ public class TicTacToe extends Application {
         primaryStage.setResizable(true);
         primaryStage.setTitle("TicTacToe");
 
-        primaryStage.setScene(new Scene(gridpane, 300, 300));
+        Scene scene = new Scene(gridpane, 300, 300);
 
+        // Chargement du fichier CSS
+        String cssFile = getClass().getResource("/exercice2/TicTacToe.css").toExternalForm();
+        scene.getStylesheets().add(cssFile);
+
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
