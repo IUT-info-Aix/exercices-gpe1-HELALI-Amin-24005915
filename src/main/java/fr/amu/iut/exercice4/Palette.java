@@ -9,7 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class Palette extends Application {
+public class Palette extends Application  {
 
     private int nbVert = 0;
     private int nbRouge = 0;
