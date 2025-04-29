@@ -13,6 +13,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 public class JeuMain extends Application {
 
     private Scene scene;
-    private BorderPane root;
+    private BorderPane  root;
 
     // Suivi de l'état du jeu
     private boolean gameRunning = false;
@@ -226,4 +227,25 @@ public class JeuMain extends Application {
     }
 
 
+}
+
+/**
+ * Represents an obstacle in the game that characters cannot pass through.
+ * Obstacles are rectangular shapes with a specific position and size.
+ */
+class Obstacle extends Rectangle {
+
+    /**
+     * Creates  a new obstacle with the specified position and dimensions.
+     * 
+     * @param x The x-coordinate of the obstacle's top-left corner
+     * @param y The y-coordinate of the obstacle's top-left corner
+     * @param width The width of the obstacle
+     * @param height The height of the obstacle
+     */
+    public Obstacle(double x, double y, double width, double height) {
+        super(x, y, width, height);
+        setFill(Color.DARKGRAY);  // Set the fill color
+        setStroke(Color.BLACK);   // Set the border color
+    }
 }
