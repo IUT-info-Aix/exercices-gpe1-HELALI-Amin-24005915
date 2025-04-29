@@ -245,7 +245,7 @@ class Obstacle extends Rectangle {
      */
     public Obstacle(double x, double y, double width, double height) {
         super(x, y, width, height);
-        setFill(Color.DARKGRAY);  // Set the fill color
-        setStroke(Color.BLACK);   // Set the border color
+        setFill(Color.DARKGRAY);
+        setStroke(Color.BLACK);
     }
 }
