@@ -7,6 +7,11 @@ module tp.intro.javafx {
     requires java.desktop;
     exports fr.amu.iut.exercice1;
     exports fr.amu.iut.exercice2;
+    opens com.example.partie3 to javafx.fxml;
+    opens fr.amu.iut.exercice1 to javafx.fxml;
+    opens fr.amu.iut.exercice2 to javafx.fxml;
+    opens fr.amu.iut.exercice3 to javafx.fxml;
+    opens fr.amu.iut.exercice7 to javafx.fxml;
     exports fr.amu.iut.exercice3;
     exports fr.amu.iut.exercice4;
     exports fr.amu.iut.exercice5;
@@ -15,5 +20,6 @@ module tp.intro.javafx {
     exports fr.amu.iut.exercice8;
     exports fr.amu.iut.exercice9;
     exports com.example.partie3;
+
 
 }
