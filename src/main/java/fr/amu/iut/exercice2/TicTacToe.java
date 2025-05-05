@@ -28,7 +28,7 @@ public class TicTacToe extends Application {
         Image imgCroix = new Image(getClass().getResourceAsStream("/exercice2/Croix.png"));
         ImageView Croix = new ImageView(imgCroix);
         Croix.setFitWidth(100);
-        Croix.setFitHeight(100);
+        Croix.setFitHeight(100) ;
 
 
         Image imgRond = new Image(getClass().getResourceAsStream("/exercice2/Rond.png"));

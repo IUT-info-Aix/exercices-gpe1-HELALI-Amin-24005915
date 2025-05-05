@@ -41,7 +41,7 @@ public class Palette extends Application  {
         // Initialiser le panneau (paneau central)
         panneau = new Pane();
         panneau.setPrefSize(400, 200);
-        root.setCenter(panneau);
+        root.setCenter(panneau) ;
 
         // Initialiser le HBox pour les boutons et le placer en bas
         HBox buttons = new HBox(10, vert, rouge, bleu);

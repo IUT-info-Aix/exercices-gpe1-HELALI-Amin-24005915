@@ -15,8 +15,4 @@ module tp.intro.javafx {
     exports fr.amu.iut.exercice8;
     exports fr.amu.iut.exercice9;
 
-
-
-
-
 }
