@@ -1,12 +1,43 @@
 package fr.amu.iut.exercice8;
 
-import javafx.scene.layout.GridPane;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
-public class LoginControl extends GridPane {
+public class LoginControl {
 
-    private void okClicked() {
+    // Liens vers les composants définis dans le fichier FXML
+    @FXML
+    private TextField usernameField;
+
+    @FXML
+    private PasswordField passwordField;
+
+    @FXML
+    private Button loginButton;
+
+    @FXML
+    private Button cancelButton;
+
+    // Action associée au bouton Login
+    @FXML
+    private void handleLoginAction() {
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
+        if (username.isEmpty() || password.isEmpty()) {
+            System.out.println("Error: Both fields are required.");
+        } else {
+            System.out.println("Login successful for user: " + username);
+        }
     }
 
-    private void cancelClicked() {
+    // Action associée au bouton Cancel
+    @FXML
+    private void handleCancelAction() {
+        usernameField.clear();
+        passwordField.clear();
+        System.out.println("Fields cleared.");
     }
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane fx:controller="fr.amu.iut.exercice8.LoginControl"
+          xmlns:fx="http://javafx.com/fxml/1"
+          xmlns="http://javafx.com/javafx/18"
+          stylesheets="/fr/amu/iut/exercice8/Login.css"
+          hgap="10" vgap="10" alignment="CENTER">
+
+   <!-- Labels -->
+   <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+   <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+   <!-- Text fields -->
+   <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+   <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+   <!-- Buttons -->
+   <Button text="Login" fx:id="loginButton" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2" onAction="#handleLoginAction" />
+   <Button text="Cancel" fx:id="cancelButton" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2" onAction="#handleCancelAction" />
+
+</GridPane>
