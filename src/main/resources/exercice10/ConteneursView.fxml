@@ -1,2 +1,93 @@
-<?import javafx.scene.layout.BorderPane?>
-<BorderPane></BorderPane>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fr.amu.iut.exercice10.ConteneursController"
+            prefHeight="600.0" prefWidth="800.0">
+    
+    <!-- Menu Bar en haut -->
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem text="File1" />
+                        <SeparatorMenuItem />
+                        <MenuItem text="File2" />
+                    </items>
+                </Menu>
+                <Menu text="Edit">
+                    <items>
+                        <MenuItem text="Cut" />
+                        <SeparatorMenuItem />
+                        <MenuItem text="Paste" />
+                    </items>
+                </Menu>
+                <Menu text="Help" />
+            </menus>
+        </MenuBar>
+    </top>
+    
+    <!-- Boutons à gauche -->
+    <left>
+        <HBox>
+            <children>
+                <VBox spacing="10" alignment="CENTER">
+                    <padding>
+                        <Insets top="5" right="5" bottom="5" left="5" />
+                    </padding>
+                    <children>
+                        <Label text=" Boutons : " />
+                        <Button text="Bouton1" fx:id="bouton1" onAction="#onBouton1Click" />
+                        <Button text="Bouton2" fx:id="bouton2" onAction="#onBouton2Click" />
+                        <Button text="Bouton3" fx:id="bouton3" onAction="#onBouton3Click" />
+                    </children>
+                </VBox>
+                <Separator orientation="VERTICAL" />
+            </children>
+        </HBox>
+    </left>
+    
+    <!-- Formulaire au centre -->
+    <center>
+        <GridPane alignment="CENTER" hgap="2" vgap="3">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+            
+            <!-- Labels -->
+            <Label text="Name :" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Label text="Email :" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Label text="Password :" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            
+            <!-- Champs de saisie -->
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            
+            <!-- Boutons du formulaire -->
+            <HBox spacing="10" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2">
+                <Button text="Submit" fx:id="submitButton" onAction="#onSubmitButtonClick" />
+                <Button text="Cancel" fx:id="cancelButton" onAction="#onCancelButtonClick" />
+            </HBox>
+        </GridPane>
+    </center>
+    
+    <!-- Footer en bas -->
+    <bottom>
+        <VBox alignment="CENTER">
+            <padding>
+                <Insets top="5" right="5" bottom="5" left="5" />
+            </padding>
+            <children>
+                <Separator orientation="HORIZONTAL" />
+                <Label text="Ceci est un label de bas de page" />
+            </children>
+        </VBox>
+    </bottom>
+    
+</BorderPane>
