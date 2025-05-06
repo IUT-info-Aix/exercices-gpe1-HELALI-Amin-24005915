@@ -1,5 +1,6 @@
 package fr.amu.iut.exercice9;
 
+import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -17,15 +18,42 @@ public class Animation extends Application {
         Scene scene = new Scene(root, 400, 400);
 
         Duration duration = Duration.millis(1500);
+        
+        // Transition 1 : déplacement en haut à droite
         TranslateTransition transition1 = new TranslateTransition(duration, customButton);
         transition1.setByX(150);
         transition1.setByY(-150);
-        transition1.setAutoReverse(true);
-        transition1.setCycleCount(2);
+        transition1.setAutoReverse(false);
+        
+        // Transition 2 : déplacement en bas à droite
+        TranslateTransition transition2 = new TranslateTransition(duration, customButton);
+        transition2.setByX(0);
+        transition2.setByY(300);
+        transition2.setAutoReverse(false);
+        
+        // Transition 3 : déplacement en bas à gauche
+        TranslateTransition transition3 = new TranslateTransition(duration, customButton);
+        transition3.setByX(-300);
+        transition3.setByY(0);
+        transition3.setAutoReverse(false);
+        
+        // Transition 4 : déplacement en haut à gauche
+        TranslateTransition transition4 = new TranslateTransition(duration, customButton);
+        transition4.setByX(0);
+        transition4.setByY(-300);
+        transition4.setAutoReverse(false);
+        
+        // Transition 5 : retour à la position initiale
+        TranslateTransition transition5 = new TranslateTransition(duration, customButton);
+        transition5.setByX(150);
+        transition5.setByY(150);
+        transition5.setAutoReverse(false);
 
-//        SequentialTransition st = new SequentialTransition(transition1, transition2, transition3, transition4, transition5);
+        SequentialTransition st = new SequentialTransition(transition1, transition2, transition3, transition4, transition5);
+        st.setAutoReverse(true);
+        st.setCycleCount(2);
 
-        customButton.setOnMousePressed(mouseEvent -> transition1.play());
+        customButton.addOnMousePressed(mouseEvent -> st.play());
 
         primaryStage.setTitle("Animation");
         primaryStage.setScene(scene);
