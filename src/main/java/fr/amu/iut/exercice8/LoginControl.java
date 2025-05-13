@@ -16,17 +16,17 @@ public class LoginControl extends GridPane {
     @FXML
     private void okClicked() {
         StringBuilder pw = new StringBuilder();
-        System.out.println(name.getText() + " ");
-        for (int i = 0 ; i < pwd.getText().length(); i++) {
+        for (int i = 0; i < pwd.getText().length(); i++) {
             pw.append('*');
         }
-        System.out.println(pw);
-
+        System.out.println("Nom d'utilisateur: " + name.getText());
+        System.out.println("Mot de passe: " + pw);
     }
 
     @FXML
     private void cancelClicked() {
         name.setText("");
         pwd.setText("");
+        System.out.println("Formulaire réinitialisé");
     }
 }

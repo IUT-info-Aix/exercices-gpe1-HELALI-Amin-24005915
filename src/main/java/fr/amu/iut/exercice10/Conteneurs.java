@@ -17,7 +17,7 @@ public class Conteneurs extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            URL fxmlURL = getClass().getResource("/fr/amu/iut/exercice10/ConteneursView.fxml");
+            URL fxmlURL = getClass().getResource("/exercice10/ConteneursView.fxml");
             if (fxmlURL == null) {
                 System.err.println("Le fichier FXML n'a pas pu être trouvé");
                 return;

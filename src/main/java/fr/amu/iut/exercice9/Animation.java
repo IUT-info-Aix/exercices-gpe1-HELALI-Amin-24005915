@@ -8,6 +8,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/**
+ * Cette classe crée une animation où un bouton personnalisé se déplace
+ * selon un mouvement carré dans le sens horaire, puis revient à sa position initiale.
+ * Au clic sur le bouton, l'animation démarre.
+ */
 public class Animation extends Application {
 
     @Override
@@ -49,10 +54,12 @@ public class Animation extends Application {
         transition5.setByY(150);
         transition5.setAutoReverse(false);
 
+        // Crée une séquence de transitions et la configure pour s'exécuter deux fois
         SequentialTransition st = new SequentialTransition(transition1, transition2, transition3, transition4, transition5);
         st.setAutoReverse(true);
         st.setCycleCount(2);
 
+        // Lance l'animation au clic sur le bouton
         customButton.addOnMousePressed(mouseEvent -> st.play());
 
         primaryStage.setTitle("Animation");
