@@ -1,8 +1,5 @@
 package fr.amu.iut.exercice15;
 
-import javafx.beans.binding.BooleanBinding;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -15,23 +12,20 @@ public class LoginControl extends GridPane {
 
     @FXML
     private PasswordField pwd;
-
+    
     @FXML
-    private Button okButton;
-
+    private Button okBtn;
+    
     @FXML
-    private Button cancelButton;
-
-    private BooleanProperty okButtonDisabled;
+    public void initialize() {
+        createBindings();
+    }
 
     private void createBindings() {
-        okButtonDisabled = new SimpleBooleanProperty(true);
-        okButton.disableProperty().bind(okButtonDisabled);
-
-        BooleanBinding userIdEmpty = userId.textProperty().isEmpty();
-        BooleanBinding pwdEmpty = pwd.textProperty().isEmpty();
-
-        okButtonDisabled.bind(userIdEmpty.or(pwdEmpty));
+        // Désactiver le bouton OK si un des champs est vide
+        okBtn.disableProperty().bind(
+            userId.textProperty().isEmpty().or(pwd.textProperty().isEmpty())
+        );
     }
 
     @FXML

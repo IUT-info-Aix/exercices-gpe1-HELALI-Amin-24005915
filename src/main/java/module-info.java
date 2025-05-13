@@ -25,5 +25,16 @@ module tp.intro.javafx {
     exports com.example.partie3;
     exports fr.amu.iut.Exemple1;
     opens fr.amu.iut.Exemple1 to javafx.fxml;
-
+    
+    exports fr.amu.iut.exercice12;
+    exports fr.amu.iut.exercice13;
+    exports fr.amu.iut.exercice14;
+    exports fr.amu.iut.exercice15;
+    exports fr.amu.iut.exercice16;
+    
+    opens fr.amu.iut.exercice12 to javafx.fxml;
+    opens fr.amu.iut.exercice13 to javafx.fxml;
+    opens fr.amu.iut.exercice14 to javafx.fxml;
+    opens fr.amu.iut.exercice15 to javafx.fxml;
+    opens fr.amu.iut.exercice16 to javafx.fxml;
 }

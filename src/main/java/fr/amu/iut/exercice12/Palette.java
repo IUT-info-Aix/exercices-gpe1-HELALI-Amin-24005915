@@ -60,10 +60,21 @@ public class Palette extends Application {
 
         gestionnaireEvenement = (event) -> {
             sourceOfEvent = (CustomButton) event.getSource();
-            sourceOfEvent.incrementerNbClics();
-            panneau.setStyle("-fx-background-color: " + sourceOfEvent.getCouleur());
-            texteDuHaut.setText(sourceOfEvent.getText() + " choisi " + sourceOfEvent.getNbClics() + " fois");
-            texteDuBas.setText(sourceOfEvent.getText());
+            sourceOfEvent.incrementeNbClics();
+            
+            if (sourceOfEvent == vert) {
+                panneau.setStyle("-fx-background-color: " + vert.getCouleur());
+                texteDuHaut.setText("Vert choisi " + vert.getNbClics() + " fois");
+                texteDuBas.setText("Vert");
+            } else if (sourceOfEvent == rouge) {
+                panneau.setStyle("-fx-background-color: " + rouge.getCouleur());
+                texteDuHaut.setText("Rouge choisi " + rouge.getNbClics() + " fois");
+                texteDuBas.setText("Rouge");
+            } else if (sourceOfEvent == bleu) {
+                panneau.setStyle("-fx-background-color: " + bleu.getCouleur());
+                texteDuHaut.setText("Bleu choisi " + bleu.getNbClics() + " fois");
+                texteDuBas.setText("Bleu");
+            }
         };
 
         vert.setOnAction(gestionnaireEvenement);
@@ -74,7 +85,7 @@ public class Palette extends Application {
 
         root.setCenter(panneau);
         root.setTop(texteDuHaut);
-        root.setBottom(bas);
+        root.setBottom(boutons);
 
         Scene scene = new Scene(root);
 
@@ -82,5 +93,8 @@ public class Palette extends Application {
         primaryStage.show();
     }
 
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
 

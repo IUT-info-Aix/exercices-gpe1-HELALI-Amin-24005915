@@ -1,55 +1,46 @@
 package fr.amu.iut.exercice13;
 
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.property.IntegerProperty;
 
 public class Personne {
 
-    private StringProperty nom;
-    private IntegerProperty age;
+    private String nom;
+    private int age;
     private StringProperty villeDeNaissance;
 
     public Personne(String nom, int age) {
-        this.nom = new SimpleStringProperty(nom);
-        this.age = new SimpleIntegerProperty(age);
+        this.nom = nom;
+        this.age = age;
         this.villeDeNaissance = new SimpleStringProperty("Paris");
     }
 
     public String getNom() {
-        return nom.get();
-    }
-
-    public StringProperty nomProperty() {
         return nom;
     }
 
-    public void setNom(String nom) {
-        this.nom.set(nom);
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public int getAge() {
-        return age.get();
-    }
-
-    public IntegerProperty ageProperty() {
         return age;
     }
-
-    public void setAge(int age) {
-        this.age.set(age);
-    }
-
-    public String getVilleDeNaissance() {
-        return villeDeNaissance.get();
-    }
-
+    
     public StringProperty villeDeNaissanceProperty() {
         return villeDeNaissance;
     }
-
+    
+    public String getVilleDeNaissance() {
+        return villeDeNaissance.get();
+    }
+    
     public void setVilleDeNaissance(String ville) {
-        this.villeDeNaissance.set(ville);
+        villeDeNaissance.set(ville);
+    }
+    
+    @Override
+    public String toString() {
+        return nom + " (" + age + " ans)";
     }
 }

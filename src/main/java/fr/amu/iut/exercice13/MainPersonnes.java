@@ -16,23 +16,26 @@ public class MainPersonnes  {
         lesPersonnes = FXCollections.observableArrayList();
 
         unChangementListener = change -> {
+            System.out.println("Dans le Listener :");
             while (change.next()) {
                 if (change.wasAdded()) {
-                    System.out.println("Personnes ajoutées :");
-                    for (Personne p : change.getAddedSubList()) {
-                        System.out.println(p.getNom() + " (" + p.getAge() + " ans)");
-                    }
+                    System.out.println("Ajout : " + change.getAddedSubList());
                 }
                 if (change.wasRemoved()) {
-                    System.out.println("Personnes supprimées :");
-                    for (Personne p : change.getRemoved()) {
-                        System.out.println(p.getNom() + " (" + p.getAge() + " ans)");
-                    }
+                    System.out.println("Suppression : " + change.getRemoved());
                 }
             }
+            System.out.println("Liste actuelle : " + lesPersonnes);
+            System.out.println();
         };
 
         lesPersonnes.addListener(unChangementListener);
+        
+        // Décommentez une seule question à la fois pour tester
+        question1();
+        // question2();
+        // question3();
+        // question5();
     }
 
     public static void question1() {

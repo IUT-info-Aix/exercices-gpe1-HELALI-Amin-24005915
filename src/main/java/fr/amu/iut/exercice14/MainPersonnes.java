@@ -5,6 +5,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 
 @SuppressWarnings("Duplicates")
 public class MainPersonnes {
@@ -22,25 +23,58 @@ public class MainPersonnes {
         ageMoyen = new SimpleIntegerProperty(0);
         nbParisiens = new SimpleIntegerProperty(0);
 
+        // Binding pour calculer l'âge moyen
         calculAgeMoyen = new IntegerBinding() {
             {
                 super.bind(lesPersonnes);
+                // Écouter les changements d'âge pour chaque personne
+                lesPersonnes.addListener((ListChangeListener<Personne>) change -> {
+                    while (change.next()) {
+                        if (change.wasAdded()) {
+                            for (Personne p : change.getAddedSubList()) {
+                                bind(p.ageProperty());
+                            }
+                        }
+                        if (change.wasRemoved()) {
+                            for (Personne p : change.getRemoved()) {
+                                unbind(p.ageProperty());
+                            }
+                        }
+                    }
+                });
             }
 
             @Override
             protected int computeValue() {
                 if (lesPersonnes.isEmpty()) return 0;
-                int somme = 0;
+                
+                int sommeAges = 0;
                 for (Personne p : lesPersonnes) {
-                    somme += p.getAge();
+                    sommeAges += p.getAge();
                 }
-                return somme / lesPersonnes.size();
+                return sommeAges / lesPersonnes.size();
             }
         };
-
+        
+        // Binding pour calculer le nombre de parisiens
         calculnbParisiens = new IntegerBinding() {
             {
                 super.bind(lesPersonnes);
+                // Écouter les changements de ville pour chaque personne
+                lesPersonnes.addListener((ListChangeListener<Personne>) change -> {
+                    while (change.next()) {
+                        if (change.wasAdded()) {
+                            for (Personne p : change.getAddedSubList()) {
+                                bind(p.villeDeNaissanceProperty());
+                            }
+                        }
+                        if (change.wasRemoved()) {
+                            for (Personne p : change.getRemoved()) {
+                                unbind(p.villeDeNaissanceProperty());
+                            }
+                        }
+                    }
+                });
             }
 
             @Override
@@ -54,12 +88,12 @@ public class MainPersonnes {
                 return count;
             }
         };
-
+        
         ageMoyen.bind(calculAgeMoyen);
         nbParisiens.bind(calculnbParisiens);
 
         question1();
-        question2();
+        // question2();
     }
 
     public static void question1() {

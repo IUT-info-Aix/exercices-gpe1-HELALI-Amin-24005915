@@ -14,24 +14,20 @@ public class CustomButton extends Button {
         this.couleur = couleur;
         this.nbClics = new SimpleIntegerProperty(0);
     }
-
+    
     public String getCouleur() {
         return couleur;
     }
-
+    
     public int getNbClics() {
         return nbClics.get();
     }
-
+    
+    public void incrementeNbClics() {
+        nbClics.set(nbClics.get() + 1);
+    }
+    
     public IntegerProperty nbClicsProperty() {
         return nbClics;
-    }
-
-    public void setNbClics(int nbClics) {
-        this.nbClics.set(nbClics);
-    }
-
-    public void incrementerNbClics() {
-        this.nbClics.set(this.nbClics.get() + 1);
     }
 }
