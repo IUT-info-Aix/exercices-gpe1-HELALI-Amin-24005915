@@ -60,6 +60,10 @@ public class Palette extends Application {
 
         gestionnaireEvenement = (event) -> {
             sourceOfEvent = (CustomButton) event.getSource();
+            sourceOfEvent.incrementerNbClics();
+            panneau.setStyle("-fx-background-color: " + sourceOfEvent.getCouleur());
+            texteDuHaut.setText(sourceOfEvent.getText() + " choisi " + sourceOfEvent.getNbClics() + " fois");
+            texteDuBas.setText(sourceOfEvent.getText());
         };
 
         vert.setOnAction(gestionnaireEvenement);
@@ -70,7 +74,7 @@ public class Palette extends Application {
 
         root.setCenter(panneau);
         root.setTop(texteDuHaut);
-        root.setBottom(boutons);
+        root.setBottom(bas);
 
         Scene scene = new Scene(root);
 

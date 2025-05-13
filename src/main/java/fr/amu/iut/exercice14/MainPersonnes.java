@@ -1,4 +1,4 @@
-package fr.amu.iut.exercice4;
+package fr.amu.iut.exercice14;
 
 import javafx.beans.binding.IntegerBinding;
 import javafx.beans.property.IntegerProperty;
@@ -20,9 +20,46 @@ public class MainPersonnes {
 
         lesPersonnes = new SimpleListProperty<>(FXCollections.observableArrayList());
         ageMoyen = new SimpleIntegerProperty(0);
+        nbParisiens = new SimpleIntegerProperty(0);
+
+        calculAgeMoyen = new IntegerBinding() {
+            {
+                super.bind(lesPersonnes);
+            }
+
+            @Override
+            protected int computeValue() {
+                if (lesPersonnes.isEmpty()) return 0;
+                int somme = 0;
+                for (Personne p : lesPersonnes) {
+                    somme += p.getAge();
+                }
+                return somme / lesPersonnes.size();
+            }
+        };
+
+        calculnbParisiens = new IntegerBinding() {
+            {
+                super.bind(lesPersonnes);
+            }
+
+            @Override
+            protected int computeValue() {
+                int count = 0;
+                for (Personne p : lesPersonnes) {
+                    if ("Paris".equals(p.getVilleDeNaissance())) {
+                        count++;
+                    }
+                }
+                return count;
+            }
+        };
+
+        ageMoyen.bind(calculAgeMoyen);
+        nbParisiens.bind(calculnbParisiens);
 
         question1();
-//        question2();
+        question2();
     }
 
     public static void question1() {
@@ -52,6 +89,5 @@ public class MainPersonnes {
             p.setVilleDeNaissance("Paris");
         System.out.println("Il y a " + nbParisiens.getValue() + " parisiens");
     }
-
 }
 
