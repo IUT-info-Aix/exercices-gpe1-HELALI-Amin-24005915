@@ -82,6 +82,15 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <mainClass>fr.amu.iut.exercice5.JeuMain</mainClass>
+                    <arguments>
+                        <argument>--module-path</argument>
+                        <argument>${project.build.directory}/dependency</argument>
+                        <argument>--add-modules</argument>
+                        <argument>javafx.controls,javafx.fxml</argument>
+                    </arguments>
+                </configuration>
             </plugin>
 
             <plugin>
