@@ -30,6 +30,10 @@ public class PaletteController {
 
     @FXML
     public void initialize() {
+        // Initialisation des étiquettes
+        texteDuHaut.setText("");
+        texteDuBas.setText("");
+        
         vert.setOnAction(event -> {
             nbVert++;
             panneau.setStyle("-fx-background-color: green");

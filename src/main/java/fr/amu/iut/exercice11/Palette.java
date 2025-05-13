@@ -12,7 +12,12 @@ public class Palette extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/amu/iut/exercice11/Palette.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         primaryStage.setScene(scene);
+        primaryStage.setTitle("Palette de couleurs");
         primaryStage.show(); 
+    }
+    
+    public static void main(String[] args) {
+        launch(args);
     }
 }
 
