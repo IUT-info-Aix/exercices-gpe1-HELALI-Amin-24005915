@@ -30,12 +30,30 @@ public class MainPersonnes  {
         };
 
         lesPersonnes.addListener(unChangementListener);
-        
-        // Décommentez une seule question à la fois pour tester
+        System.out.println("Début du programme");
+        System.out.println("Liste actuelle : " + lesPersonnes);
+        System.out.println();
         question1();
-        // question2();
-        // question3();
-        // question5();
+        System.out.println("Fin de la question 1");
+        System.out.println("Liste actuelle : " + lesPersonnes);
+        System.out.println();
+        question2();
+        System.out.println("Fin de la question 2");
+        System.out.println("Liste actuelle : " + lesPersonnes);
+        System.out.println();
+        question3();
+        System.out.println("Fin de la question 3");
+        System.out.println("Liste actuelle : " + lesPersonnes);
+        System.out.println();
+        question5();
+        System.out.println("Fin de la question 5");
+        System.out.println("Liste actuelle : " + lesPersonnes);
+        System.out.println();
+        System.out.println("Fin du programme");
+        System.out.println("Liste actuelle : " + lesPersonnes);
+        System.out.println();
+        lesPersonnes.removeListener(unChangementListener);
+        System.out.println("Fin du programme");
     }
 
     public static void question1() {
